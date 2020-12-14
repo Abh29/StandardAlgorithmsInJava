@@ -6,7 +6,7 @@ public class Sort {
      * quick sort
      * **/
 
-    static public <T extends Comparable> void quickSort(T[] arr , int start , int end ){
+    static public <T extends Comparable<T>> void quickSort(T[] arr , int start , int end ){
 
         if(start >= end )
             return;
@@ -20,7 +20,7 @@ public class Sort {
 
     }
 
-    static private <T extends Comparable> int getPivotIndex(T[] arr , int low , int high) {
+    static private <T extends Comparable<T>> int getPivotIndex(T[] arr , int low , int high) {
         int i = low -1 ;
         T pivot = arr[high];
         T holder ;
@@ -45,7 +45,7 @@ public class Sort {
      * bubble sort
      * **/
 
-    static public <T extends Comparable> void bubbleSort(T[] arr ){
+    static public <T extends Comparable<T>> void bubbleSort(T[] arr ){
 
         T tmp ;
 
