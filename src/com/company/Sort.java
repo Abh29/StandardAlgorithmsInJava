@@ -2,7 +2,9 @@ package com.company;
 
 public class Sort {
 
-
+    /**
+     * quick sort
+     * **/
 
     public <T extends Comparable> void quickSort(T[] arr , int start , int end ){
 
@@ -39,6 +41,26 @@ public class Sort {
         return i+1 ;
     }
 
+    /**
+     * bubble sort
+     * **/
+
+    public <T extends Comparable> void bubbleSort(T[] arr ){
+
+        T tmp ;
+
+        for (int i = 0; i < arr.length -1 ; i++) {
+            for (int j = 0; j < arr.length - i -1 ; j++) {
+
+                if (arr[j].compareTo(arr[j+1]) > 0){
+                    tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                }
+            }
+        }
+
+    }
 
 
 
