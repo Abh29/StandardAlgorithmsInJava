@@ -2,9 +2,7 @@ package com.company;
 
 public class Sort {
 
-    /**
-     * quick sort
-     * **/
+    // quick sort
 
     static public <T extends Comparable<? super T>> void quickSort(T[] arr , int start , int end ){
 
@@ -23,7 +21,6 @@ public class Sort {
     static private <T extends Comparable<? super T>> int getPivotIndex(T[] arr , int low , int high) {
         int i = low -1 ;
         T pivot = arr[high];
-        T holder ;
 
         for (int j = low ; j < high  ; j++) {
             if (pivot.compareTo(arr[j]) >= 0){
@@ -39,9 +36,13 @@ public class Sort {
         return i+1 ;
     }
 
-    /**
-     * bubble sort
-     * **/
+    static private <T> void swap(T[] arr , int i , int j){
+        T tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp ;
+    }
+
+    // bubble sort
 
     static public <T extends Comparable<? super T>> void bubbleSort(T[] arr ){
 
@@ -60,13 +61,9 @@ public class Sort {
 
     }
 
-    static private <T> void swap(T[] arr , int i , int j){
-        T tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp ;
-    }
+    // selection sort
 
-    static public <T extends Comparable<?super T>> void selectSort(T[] arr){
+    static public <T extends Comparable<? super T>> void selectionSort(T[] arr){
 
         int local_min ;
 
@@ -90,6 +87,23 @@ public class Sort {
 
 
     }
+
+    // insertion sort
+
+    public static <T extends Comparable<? super T>> void insertionSort(T[] arr){
+
+        for (int i = 1; i < arr.length; ) {
+            if (arr[i].compareTo(arr[i-1]) < 0){
+                swap(arr , i , i-1);
+                if(i != 1)
+                    --i;
+            }else
+                  i++;
+        }
+
+    }
+
+
 
 
 
