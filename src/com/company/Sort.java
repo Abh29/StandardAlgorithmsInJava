@@ -6,7 +6,7 @@ public class Sort {
      * quick sort
      * **/
 
-    static public <T extends Comparable<T>> void quickSort(T[] arr , int start , int end ){
+    static public <T extends Comparable<? super T>> void quickSort(T[] arr , int start , int end ){
 
         if(start >= end )
             return;
@@ -20,7 +20,7 @@ public class Sort {
 
     }
 
-    static private <T extends Comparable<T>> int getPivotIndex(T[] arr , int low , int high) {
+    static private <T extends Comparable<? super T>> int getPivotIndex(T[] arr , int low , int high) {
         int i = low -1 ;
         T pivot = arr[high];
         T holder ;
@@ -28,9 +28,7 @@ public class Sort {
         for (int j = low ; j < high  ; j++) {
             if (pivot.compareTo(arr[j]) >= 0){
                 i++;
-                holder = arr[j];
-                arr[j] = arr[i];
-                arr[i] = holder;
+                swap(arr, i,j);
             }
         }
 
@@ -45,7 +43,7 @@ public class Sort {
      * bubble sort
      * **/
 
-    static public <T extends Comparable<T>> void bubbleSort(T[] arr ){
+    static public <T extends Comparable<? super T>> void bubbleSort(T[] arr ){
 
         T tmp ;
 
@@ -62,6 +60,36 @@ public class Sort {
 
     }
 
+    static private <T> void swap(T[] arr , int i , int j){
+        T tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp ;
+    }
+
+    static public <T extends Comparable<?super T>> void selectSort(T[] arr){
+
+        int local_min ;
+
+
+        for (int i = 0; i < arr.length -1 ; i++) {
+
+            local_min = i ;
+
+            for (int j = i+1; j < arr.length; j++) {
+
+                if (arr[local_min].compareTo(arr[j]) > 0){
+                    local_min = j ;
+                }
+            }
+
+            if (local_min != i){
+                swap(arr, local_min,i);
+            }
+
+        }
+
+
+    }
 
 
 
