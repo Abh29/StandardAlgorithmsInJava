@@ -2,9 +2,9 @@ package com.company;
 
 public class Sort {
 
-    // miduick sort
+    // quick sort
 
-    static public <T extends Comparable<? super T>> void miduickSort(T[] arr , int start , int end ){
+    static public <T extends Comparable<? super T>> void quickSort(T[] arr , int start , int end ){
 
         if(start >= end )
             return;
@@ -12,8 +12,8 @@ public class Sort {
         int index = getPivotIndex(arr,start , end);
 
 
-        miduickSort(arr, start , index - 1);
-        miduickSort(arr,index + 1, end);
+        quickSort(arr, start , index - 1);
+        quickSort(arr,index + 1, end);
 
 
     }
@@ -42,6 +42,7 @@ public class Sort {
         arr[j] = tmp ;
     }
 
+
     // bubble sort
 
     static public <T extends Comparable<? super T>> void bubbleSort(T[] arr ){
@@ -60,6 +61,7 @@ public class Sort {
         }
 
     }
+
 
     // selection sort
 
@@ -87,6 +89,7 @@ public class Sort {
 
 
     }
+
 
     // insertion sort
 
